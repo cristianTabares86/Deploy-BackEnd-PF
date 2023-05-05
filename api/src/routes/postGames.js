@@ -7,9 +7,10 @@ router.use(express.json());
 
 router.post("/", async (req, res) => {
  
-  let { name, released, rating, platforms, genre } = req.body;
+  let { id, name, released, rating, platforms, genre } = req.body;
   try {
     let resultado = await createGame({
+      id,
       name,
       released,
       rating,
