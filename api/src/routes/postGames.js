@@ -8,7 +8,7 @@ router.use(express.json());
 router.post("/", async (req, res) => {
  
   let { name, released, rating, platforms, genres } = req.body;
-  console.log(name +"  " +genres)
+  console.log(name +"  " +genres +"  "+ platforms)
   try {
     let resultado = await createGame({
       name,
