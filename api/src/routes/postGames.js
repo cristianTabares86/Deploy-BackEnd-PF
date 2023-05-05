@@ -7,15 +7,14 @@ router.use(express.json());
 
 router.post("/", async (req, res) => {
  
-  let { name, released, rating, platforms, genres } = req.body;
-  console.log(name +"  " +genres +"  "+ platforms)
+  let { name, released, rating, platforms, genre } = req.body;
   try {
     let resultado = await createGame({
       name,
       released,
       rating,
       platforms,
-      genres,
+      genre,
     });
     res.status(200).json(`Su juego se ha creado con éxito. \n\nGracias por compartirlo!.`);
   } catch (error) {
