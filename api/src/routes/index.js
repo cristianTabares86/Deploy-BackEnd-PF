@@ -16,7 +16,7 @@ const createBulkDB = async (req, res) => {
         console.log("estoy en createBulkDB")
         const response = await axios.get(
             "https://api.rawg.io/api/games?page_size=10&key=6df927ecdff443ffa74507df2223a6ad&page_size=40"); // ? solicita los datos a la api externa
-            console.log(response.data)
+            //console.log(response.data)
             const allGames = response.data.results.map((game) => ({//? trae los datos unificando el formato
                 id: game.id,
                 name: game.name,
@@ -26,6 +26,7 @@ const createBulkDB = async (req, res) => {
                 image: game.background_image,
                 genre: game.genres.map((genre) => genre.name),
             }));
+            console.log("estoy en createBulkD antes del bulk")
             const savedGames = await Videogame.bulkCreate(allGames);
             return res.status(200).json(savedGames);
     } catch (error) {
