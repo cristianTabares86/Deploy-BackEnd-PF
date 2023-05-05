@@ -31,7 +31,7 @@ const createBulkDB = async (req, res) => {
             const savedGames = await Videogame.bulkCreate(allGames);
             return res.status(200).json(savedGames);
     } catch (error) {
-      return res.status(500).json({ message: "Error interno del servidor" });
+      return res.status(500).json({ message: "Error interno del servidor" + error.message });
     }
 };
 
