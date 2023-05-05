@@ -13,6 +13,7 @@ const  { Videogame }  = require("../db")
 
 const createBulkDB = async (req, res) => {
     try {  
+        console.log("estoy en createBulkDB")
         const response = await axios.get(
             "https://api.rawg.io/api/games?page_size=10&key=6df927ecdff443ffa74507df2223a6ad&page_size=40"); // ? solicita los datos a la api externa
             
