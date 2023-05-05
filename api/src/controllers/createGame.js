@@ -18,10 +18,10 @@ async function createGame({
     genre,
   });
 
-  for (const genre of genre) {
+  for (const gen of genre) {
     let genres = await Genre.findOne({
       where: {
-        title: genre,
+        title: gen,
       },
     });
 
